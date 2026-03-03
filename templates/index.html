@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teeth Detection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <header>
+    <h1>Deep Learning-Based Impacted Teeth Detection</h1>
+  </header>
+  <main>
+    <div class="upload-box">
+      <p class ='ellipse-text'>Upload multiple images for detection</p>
+      <form id="uploadForm" enctype="multipart/form-data">
+        <div class="button-group">
+          <label for="fileInput" class="custom-file-upload">
+            <i class="fa fa-cloud-upload"></i> Upload Images
+          </label>
+          <div class="model-selection">
+            <button class="model-button active" data-model="best (1).pt">Box and Keypoints</button>
+            <button class="model-button" data-model="best (2).pt">Segmentation</button>
+          </div>
+          <input type="file" id="fileInput" name="files" multiple accept="image/png, image/jpeg" style="display: none;">
+          <button type="submit">Process Images</button>
+        </div>
+      </form>
+      <div id="previewContainer" class="preview-container">
+        <h3>Image Previews</h3>
+        <div id="preview"></div>
+        <div class='upload-secter'></div>
+        <h4>Sector Previews</h4>
+        <div id="sectorPreview"></div>
+        <button id="deploy-sectors-button" class="deploy-button">Deploy Sector Images</button>
+      </div>
+    </div>
+    <h2>Detection Results</h2>
+    <button id="edit-button" class="edit-button">Edit</button>
+    <div id="results" class="results-box">
+    </div>
+    <button id="download-button" class="download-button" onclick="downloadAllResults()">Download Results</button>
+  </main>
+  <footer>
+    <p>&copy; 2025 Teeth Detection</p>
+  </footer>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+  <script src="https://unpkg.com/jszip@3.7.1/dist/jszip.min.js"></script>
+  <script>
+    document.getElementById("edit-button").addEventListener("click", () => {
+        window.location.href = "{{ url_for('edit') }}";
+    });
+  </script>
+</body>
+</html>

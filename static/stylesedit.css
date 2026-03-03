@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #ecf6fc; /* Updated background color */
+}
+
+.container.disable :where(.editor-panel, .reset-filter, .save-img){
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.container{
+    width: 1200px; /* Increased width */
+    height: 800px; /* Increased height */
+    border-radius: 10px;
+    background: #fff;
+    padding: 40px 45px 45px; /* Increased padding */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.container h2{
+    font-size: 26px; /* Increased font size */
+    font-weight: 500;
+}
+.container .wrapper{
+    display: flex;
+    margin: 30px 0; /* Increased margin */
+    min-height: 450px; /* Increased min-height */
+}
+
+.wrapper .editor-panel{
+    width: 350px; /* Increased width */
+    padding: 20px 25px; /* Increased padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.editor-panel .title{
+    display: block;
+    font-size: 18px; /* Increased font size */
+    margin-bottom: 15px; /* Increased margin */
+}
+
+.editor-panel .options, .controls{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.editor-panel button{
+    height: 50px; /* Increased height */
+    width: 18px; /* Increased width */
+    color: #6C757D;
+    margin-bottom: 10px; /* Increased margin */
+    border-radius: 3px;
+    background: #fff;
+    border: 1px solid #aaa;
+}
+
+.editor-panel button:hover{
+    background: #f0f8ff; /* Updated hover background color */
+}
+
+.editor-panel .filter button{
+    width: calc(100% / 2 - 5px); /* Adjusted width */
+}
+
+.filter button.active{
+    color: #fff;
+    background: #3498db; /* Updated active button color */
+    border-color: #3498db; /* Updated active button border color */
+}
+
+.filter .slider{
+    margin-top: 15px; /* Increased margin */
+}
+
+.filter .slider .filter-info{
+    display: flex;
+    color: #464646;
+    font-size: 16px; /* Increased font size */
+    justify-content: space-between;
+}
+
+.filter .slider input{
+    width: 100%;
+    height: 6px; /* Increased height */
+    accent-color: #3498db; /* Updated slider accent color */
+}
+
+.editor-panel .rotate{
+    margin-top: 20px; /* Increased margin */
+}
+
+.editor-panel .rotate button{
+    width: calc(100% / 4 - 4px); /* Adjusted width */
+}
+
+.rotate button:nth-child(3),
+.rotate button:nth-child(4){
+    font-size: 18px;
+}
+
+.wrapper .preview-img{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 25px; /* Increased margin */
+}
+
+.preview-img img{
+    max-width: 600px; /* Increased max-width */
+    max-height: 450px; /* Increased max-height */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.controls button{
+    font-size: 16px; /* Increased font size */
+    cursor: pointer;
+    color: #fff;
+    background: #fff;
+    padding: 15px 25px; /* Increased padding */
+    border-radius: 10px;
+    margin-top: 120px; /* Increased margin */
+    text-transform: uppercase;
+}
+
+.controls .reset-filter{
+    color: #6C757D;
+    border: 1px solid #6C757D;
+}
+
+.controls .choose-img{
+    background: #6C757D;
+    border: 1px solid #6C757D;
+}
+
+.controls .save-img{
+    margin-left: 5px;
+    background: #3498db; /* Updated save button background color */
+    border: 1px solid #3498db; /* Updated save button border color */
+}
+
+.measurements button {
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 10px 60px; /* Increased padding to make the button longer */
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.measurements button:hover {
+    background-color: #2980b9; /* Darken the background on hover */
+    color: #fff; /* Ensure text color remains white */
+}
+
+#measurement-canvas {
+    position: absolute;
+    z-index: 10;
+    border: 1px solid transparent;
+}
+.measurement-tools {
+    margin: 10px;
+}
+
+.red-text {
+    color: red;
+}
+
+.blue-text {
+    color: blue;
+}
+
+@media screen and (max-width: 760px){
+    .container{
+        padding: 25px;
+    }
+
+    .container .wrapper{
+        flex-wrap: wrap-reverse;
+    }
+
+    .wrapper .editor-panel{
+        width: 100%;
+    }
+
+    .wrapper .preview-img{
+        width: 100%;
+        margin: 0 0 15px;
+    }
+}
+
+
+@media screen and (max-width: 500px){
+    .controls button{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .controls .row{
+        width: 100%;
+    }
+
+    .controls .row .save-img{
+        margin-left: 0px;
+    }
+    
+}
